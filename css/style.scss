@@ -375,13 +375,14 @@ h5 {
     }
   }
 }
-.call-button {
+.button {
   display: block;
   padding: 14px 46px;
   background: #44c697;
   border-radius: 3px;
   color: #ffffff;
   transition: 0.3s;
+  cursor: pointer;
   &:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.267);
   }
@@ -391,4 +392,102 @@ h5 {
   background-image: url('/img/slider.png');
   background-size: cover;
   height: calc(100vh - 186px);
+  padding: 0 50px;
+  position: relative;
+  &__block {
+    position: absolute;
+    background-color: #ffffff;
+    border-left: #44c697 15px solid;
+    padding: 100px 75px 100px 60px;
+    max-width: 505px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-title {
+      margin-bottom: 50px;
+    }
+    &-subtitle {
+      margin-bottom: 10px;
+    }
+    &-text {
+      margin-bottom: 30px;
+
+      h3 {
+        font-weight: 400;
+      }
+
+      text-align: center;
+    }
+    &-button {
+      margin-bottom: 50px;
+    }
+    &-counter {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 5px;
+      h3 {
+        margin-right: 7px;
+      }
+    }
+    &-nav {
+      position: relative;
+      .nav:hover {
+        &::before {
+          background-color: $font-color;
+          color: #ffffff;
+        }
+      }
+      .nav::before {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border: 1px solid $font-color;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s;
+      }
+      .nav-left::before {
+        content: '<';
+        left: -30px;
+      }
+      .nav-right::before {
+        content: '>';
+        left: 10px;
+      }
+    }
+  }
+  .scroll-block {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span {
+      font-family: 'Proxima Nova';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+    .scroll-anim {
+      animation: ease-in-out scroll 3s infinite;
+    }
+  }
+}
+@keyframes scroll {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
